@@ -35,10 +35,10 @@ router.afterEach((to, from) => {
 });
 
 /**
-* 1,导航被触发
+ * 1,导航被触发
  * 2，在失活的组件（即将离开的组件调用离开守卫）beforeRouteLeave
  * 3, 调用全局的前置守卫beforeEach
- * 4，再重用的组建里调用beforeRouteUpdate，（（不是重用的调用beforeRouteEnter））
+ * 4，再重用的组建里调用beforeRouteUpdate，(不是重用的调用beforeRouteEnter)
  * 5，调用路由独享的守卫beforeEnter（这个是在理由列表里面配置的）
  * 6，解析异步路由组件
  * 7，在被激活的组建里（即将进入的组件）里调用beforeRouteEnter

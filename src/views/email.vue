@@ -1,12 +1,20 @@
 <template>
     <div>
-        i am email
+        <button @click="sendMessage">点击发送bus值</button>
     </div>
 </template>
 
 <script>
 export default {
-    name: "email"
+    name: "email",
+    mounted () {
+        console.log(this.$bus);
+    },
+    methods: {
+        sendMessage () {
+            this.$bus.$emit('on-click', 'Hello')
+        }
+    }
 }
 </script>
 

@@ -1,10 +1,9 @@
 <template>
     <div>
         I am parent
-        <router-view/>
+        <router-view />
     </div>
 </template>
-
 <script>
 export default {
     name: "parent"
@@ -12,5 +11,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

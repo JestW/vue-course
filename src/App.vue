@@ -4,13 +4,46 @@
       <router-link to="/">Home</router-link> |
       <router-link :to="{name: 'about'}">About</router-link>
     </div>
-    <router-view/>
-    <router-view name="email"/>
-    <router-view name="tel"/>
+    <transition-group :name="routerTransition">
+      <router-view key="default" />
+      <router-view key="email" name="email"/>
+      <router-view key="tel" name="tel"/>
+    </transition-group>
   </div>
 </template>
-
+<script>
+export default {
+    data () {
+        return {
+            routerTransition: ''
+        }
+    },
+    watch: {
+        '$route'(to){
+            to.query && to.query.routerTransition && (this.routerTransition = to.query.routerTransition)
+        }
+    }
+}
+</script>
 <style lang="scss">
+  .router-enter{
+    opacity: 0;
+  }
+  .router-enter-active{
+    transition: opacity 1s ease;
+  }
+  .router-enter-to{
+    opacity: 1;
+  }
+  .router-leave{
+    opacity: 1;
+  }
+  .router-leave-active{
+    transition: opacity 1s ease;
+  }
+  .router-leave-to{
+    opacity: 0;
+  }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
